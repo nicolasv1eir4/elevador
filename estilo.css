@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace; /* Tom industrial */
+}
+
+body {
+    background-color: #1e222b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.main-wrapper {
+    display: flex;
+    gap: 40px;
+    background: #282c34;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* POÇO DO ELEVADOR */
+.elevator-shaft {
+    width: 160px;
+    height: 450px;
+    background: #15181f;
+    border: 4px solid #3e4451;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.floor-marker {
+    position: absolute;
+    right: 10px;
+    font-size: 11px;
+    color: #5c6370;
+    border-bottom: 1px dashed #3e4451;
+    width: 80%;
+    text-align: right;
+}
+
+.cabin {
+    width: 70px;
+    height: 75px;
+    background: #61afef;
+    position: absolute;
+    left: 20px;
+    bottom: 10px; /* Alinhado ao Térreo inicialmente */
+    border: 2px solid #fff;
+    border-radius: 4px;
+    transition: bottom 2s ease-in-out; /* Movimento suave */
+    display: flex;
+}
+
+/* Portas da cabine */
+.cabin-door {
+    width: 50%;
+    height: 100%;
+    background: #4b5263;
+    border: 1px solid #1e222b;
+    transition: transform 0.5s ease;
+}
+
+/* PAINEL DE CONTROLE (CLP) */
+.control-panel {
+    width: 320px;
+    background: #21252b;
+    border: 3px solid #3e4451;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+h2 { color: #e06c75; font-size: 22px; text-align: center; }
+.panel-title { text-align: center; font-size: 11px; color: #abb2bf; margin-bottom: 15px; }
+
+.clp-display {
+    background: #000;
+    border: 2px solid #5c6370;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.display-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #98c379;
+}
+
+.main-weight {
+    font-size: 22px;
+    color: #e5c07b;
+    border-top: 1px solid #282c34;
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+/* Alarme */
+.alarm-panel {
+    background: #282c34;
+    color: #98c379;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #98c379;
+}
+
+.alarm-panel.overload {
+    background: #e06c75;
+    color: #fff;
+    border: 1px solid #ff0000;
+    animation: flash 0.8s infinite alternate;
+}
+
+@keyframes flash {
+    from { opacity: 1; } to { opacity: 0.4; }
+}
+
+/* Seleção de andares */
+.floor-selector { margin-bottom: 20px; }
+.floor-selector label, .io-controls label { font-size: 12px; color: #abb2bf; display: block; margin-bottom: 8px; }
+
+.floor-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.floor-btn {
+    background: #3e4451;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.floor-btn:hover:not(:disabled) { background: #5c6370; }
+
+/* Botões de Entrada/Saída */
+.io-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-add { background: #98c379; color: #1e222b; }
+.btn-add:hover:not(:disabled) { background: #a3d487; }
+.btn-reset { background: #e5c07b; color: #1e222b; }
+
+/* Bloqueios de Segurança */
+button:disabled {
+    background: #282c34 !important;
+    color: #5c6370 !important;
+    cursor: not-allowed;
+    border: 1px dashed #3e4451;
+}

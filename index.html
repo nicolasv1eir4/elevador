@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESI Elevador - Avançado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <div class="elevator-shaft">
+            <div class="floor-marker" style="top: 10%;">3º Andar</div>
+            <div class="floor-marker" style="top: 40%;">2º Andar</div>
+            <div class="floor-marker" style="top: 70%;">1º Andar</div>
+            <div class="floor-marker" style="top: 90%;">Térreo</div>
+            
+            <div id="cabin" class="cabin">
+                <div class="cabin-door left"></div>
+                <div class="cabin-door right"></div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <h2>SESI / SENAI</h2>
+            <p class="panel-title">Interface Homem-Máquina (IHM)</p>
+            <hr>
+
+            <div class="clp-display">
+                <div class="display-row">
+                    <span>STATUS:</span>
+                    <span id="status-display" class="status-ok">STANDBY</span>
+                </div>
+                <div class="display-row">
+                    <span>ANDAR:</span>
+                    <span id="floor-display">TÉREO</span>
+                </div>
+                <div class="display-row main-weight">
+                    <span>CARGA:</span>
+                    <span id="weight-display">0 kg</span>
+                </div>
+            </div>
+
+            <div id="alert-display" class="alarm-panel">SISTEMA OPERACIONAL</div>
+
+            <div class="floor-selector">
+                <label>Comando de Destino:</label>
+                <div class="floor-buttons">
+                    <button class="floor-btn" onclick="goToFloor(3)">3</button>
+                    <button class="floor-btn" onclick="goToFloor(2)">2</button>
+                    <button class="floor-btn" onclick="goToFloor(1)">1</button>
+                    <button class="floor-btn" onclick="goToFloor(0)">T</button>
+                </div>
+            </div>
+
+            <div class="io-controls">
+                <label>Simulação de Sensores (I/O):</label>
+                <button id="add-btn" class="btn btn-add">➕ Adicionar 100kg</button>
+                <button id="reset-btn" class="btn btn-reset">🔄 Resetar Sistema</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
